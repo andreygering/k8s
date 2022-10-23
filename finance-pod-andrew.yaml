@@ -1,0 +1,26 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: temp-bus
+  labels:
+    name: temp-bus
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: finance-andrew
+  namespace: temp-bus
+  labels:
+    name: finance-andrew
+spec:
+  containers:
+  - name: finance-andrew
+    image: redis:alpine
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 6379

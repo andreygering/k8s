@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx:alpine
+    name: nginx
+    env:
+        - name: FILEPATH_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: keyvalcfgmap
+              key: FILEPATH
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}

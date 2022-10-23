@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-andrew
+  labels:
+    name: nginx-pod-andrew
+    env: prod
+spec:
+  containers:
+  - name: nginx-pod-andrew
+    image: nginx:alpine
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80

@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-resolver-service
+spec:
+  selector:
+    app: nginx-resolver
+  containers:
+  - name: nginx-resolver-service
+    image: busybox:1.28
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+      ports:
+        - containerPort: 8080
+
+  ports:
+  - port: 8080
+    targetPort: 8080
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-resolver
+  labels:
+    name: nginx-resolver
+    app: nginx
+spec:
+  containers:
+  - name: nginx-resolver
+    image: nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+
+
+

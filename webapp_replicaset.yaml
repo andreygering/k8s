@@ -1,0 +1,30 @@
+Name:           webapp-6684ccd7b8
+Namespace:      default
+Selector:       app=webapp,pod-template-hash=6684ccd7b8
+Labels:         app=webapp
+                pod-template-hash=6684ccd7b8
+Annotations:    deployment.kubernetes.io/desired-replicas: 5
+                deployment.kubernetes.io/max-replicas: 7
+                deployment.kubernetes.io/revision: 1
+Controlled By:  Deployment/webapp
+Replicas:       5 current / 5 desired
+Pods Status:    0 Running / 5 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=webapp
+           pod-template-hash=6684ccd7b8
+  Containers:
+   nginx:
+    Image:        nginx
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age   From                   Message
+  ----    ------            ----  ----                   -------
+  Normal  SuccessfulCreate  27m   replicaset-controller  Created pod: webapp-6684ccd7b8-pzfw5
+  Normal  SuccessfulCreate  27m   replicaset-controller  Created pod: webapp-6684ccd7b8-8s5vt
+  Normal  SuccessfulCreate  27m   replicaset-controller  Created pod: webapp-6684ccd7b8-q4czh
+  Normal  SuccessfulCreate  27m   replicaset-controller  Created pod: webapp-6684ccd7b8-jcq78
+  Normal  SuccessfulCreate  27m   replicaset-controller  Created pod: webapp-6684ccd7b8-c7w28

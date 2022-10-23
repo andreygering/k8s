@@ -1,0 +1,22 @@
+# Run this command on the node where kubelet is running
+# mkdir -p /etc/kubernetes/manifests/
+# cat static-busybox.yaml >> /etc/kubernetes/manifests/static-busybox.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-busybox
+  labels:
+    name: static-busybox
+spec:
+  containers:
+  - name: static-busybox
+    image: busybox
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 1000; done;" ]
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
